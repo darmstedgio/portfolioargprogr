@@ -15,9 +15,6 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
-
 
 @Data
 @AllArgsConstructor
@@ -38,27 +35,22 @@ public class User {
 
   
   @OneToMany(targetEntity = Identity.class, cascade = CascadeType.ALL)
-  @OnDelete(action = OnDeleteAction.CASCADE)
   @JoinColumn(name="user_id", referencedColumnName = "id")
   private List<Identity> identities;
 
   @OneToMany(targetEntity = Tecnology.class, cascade = CascadeType.ALL)
-  @OnDelete(action = OnDeleteAction.CASCADE)
   @JoinColumn(name="user_id", referencedColumnName = "id")
   private List<Tecnology> tecnologies;
 
   @OneToMany(targetEntity = Project.class, cascade = CascadeType.ALL)
-  @OnDelete(action = OnDeleteAction.CASCADE)
   @JoinColumn(name="user_id", referencedColumnName = "id")
   private List<Project> projects;
 
   @OneToMany(targetEntity = Study.class, cascade = CascadeType.ALL)
-  @OnDelete(action = OnDeleteAction.CASCADE)
   @JoinColumn(name="user_id", referencedColumnName = "id")
   private List<Study> studies;
 
   @OneToMany(targetEntity = LaboralExperience.class, cascade = CascadeType.ALL)
-  @OnDelete(action = OnDeleteAction.CASCADE)
   @JoinColumn(name="user_id", referencedColumnName = "id")
   private List<LaboralExperience> laboralexperiences;
 

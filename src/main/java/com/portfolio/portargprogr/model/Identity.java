@@ -30,5 +30,4 @@ public class Identity {
   private String image_path;
   private String updated_at;
   private String created_at;
-  private Long user_id;
 }

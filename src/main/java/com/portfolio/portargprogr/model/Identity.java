@@ -17,7 +17,7 @@ import lombok.Getter;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-@Entity
+@Entity 
 public class Identity {
   @Id
   @GeneratedValue(strategy=GenerationType.AUTO)

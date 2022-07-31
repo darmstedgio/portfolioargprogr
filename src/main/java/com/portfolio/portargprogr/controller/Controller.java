@@ -243,12 +243,6 @@ public class Controller {
     }
     /* ********** End LaboralExperience ********** */
 
-
-
-
-
-
-
    // Test api heroku
    @GetMapping("/time")
    @ResponseStatus(HttpStatus.OK)

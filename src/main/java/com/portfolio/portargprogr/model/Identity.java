@@ -7,7 +7,6 @@ import javax.persistence.Id;
 
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 import lombok.Setter;

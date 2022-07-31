@@ -9,8 +9,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-
-@Data
+import lombok.Setter;
+import lombok.Getter;
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
@@ -28,7 +30,6 @@ public class Project {
   private String description;
   private String created_at;
   private String updated_at;
-  private Long user_ide;
 
   
 }

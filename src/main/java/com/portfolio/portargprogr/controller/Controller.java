@@ -16,31 +16,23 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.portfolio.portargprogr.model.Identity;
-import com.portfolio.portargprogr.model.User;
 import com.portfolio.portargprogr.model.Tecnology;
 import com.portfolio.portargprogr.model.Project;
 import com.portfolio.portargprogr.model.Study;
 import com.portfolio.portargprogr.model.LaboralExperience;
-import com.portfolio.portargprogr.service.IIdentityService;
 import com.portfolio.portargprogr.service.ILaboralExperienceService;
 import com.portfolio.portargprogr.service.IProjectService;
 import com.portfolio.portargprogr.service.IStudyService;
 import com.portfolio.portargprogr.service.ITecnologyService;
-import com.portfolio.portargprogr.service.IUserService;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.security.access.prepost.PreAuthorize;
 
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "*")
 public class Controller {
 
-
-
-
-    @Autowired
-    private IIdentityService idenServ;
-    @Autowired
-    private IUserService userServ;
     @Autowired
     private ITecnologyService tecnServ;
     @Autowired
@@ -50,72 +42,6 @@ public class Controller {
     @Autowired
     private ILaboralExperienceService labexpServ;
 
-    /* ********** Identities ********** */
-    // Index
-    @GetMapping("/index/identities")
-    @ResponseBody
-    public List<Identity> listIdentity(){
-        return idenServ.listIdentity();
-    }
-
-    @PostMapping("/store/identity")
-    public void storeIdentity(@RequestBody Identity identity){
-        idenServ.storeIdentity(identity);
-    }
-
-    // Update
-    @PutMapping("/update/identity")
-    public Identity updateIdentity(@RequestBody Identity iden){
-        idenServ.storeIdentity(iden);
-        return iden;
-    }
-
-    // Find
-    @GetMapping("/find/identity/{id}")
-    @ResponseBody
-    public Identity findIdentity(@PathVariable Long id){
-        return idenServ.findIdentity(id);
-    }
-
-    // Delete
-    @DeleteMapping("/delete/identity/{id}")
-    public void deleteIdentity(@PathVariable Long id){
-        idenServ.deleteIdentity(id);
-    }
-    /* ********** End Identities ********** */
-
-
-
-
-    /* ********** User ********** */
-    @GetMapping("/index/users")
-    @ResponseBody
-    public List<User> listUser(){
-        return userServ.listUser();
-    }
-    // Store
-    @PostMapping("/store/user")
-    public void storeUser(@RequestBody User user){
-        userServ.storeUser(user);
-    }
-    // Update
-    @PutMapping("/update/user")
-    public User updateUser(@RequestBody User user){
-        userServ.storeUser(user);
-        return user;
-    }
-    // Find
-    @GetMapping("/find/user/{id}")
-    @ResponseBody
-    public User findUser(@PathVariable Long id){
-        return userServ.findUser(id);
-    }
-    // Delete
-    @DeleteMapping("/delete/user/{id}")
-    public void deleteUser(@PathVariable Long id){
-        userServ.deleteUser(id);
-    }
-    /* ********** End User ********** */
 
     /* ********** Tecnology ********** */
     @GetMapping("/index/tecnologies")
@@ -124,11 +50,13 @@ public class Controller {
         return tecnServ.listTecnology();
     }
     // Store
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/store/tecnology")
     public void storeTecnology(@RequestBody Tecnology tec){
         tecnServ.storeTecnology(tec);
     }
     // Update
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/update/tecnology")
     public Tecnology updateTecnology(@RequestBody Tecnology tec){
         tecnServ.storeTecnology(tec);
@@ -141,6 +69,7 @@ public class Controller {
         return tecnServ.findTecnology(id);
     }
     // Delete
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/delete/tecnology/{id}")
     public void deleteTecnology(@PathVariable Long id){
         tecnServ.deleteTecnology(id);
@@ -157,11 +86,13 @@ public class Controller {
     }
     // Store
     @PostMapping("/store/project")
+    @PreAuthorize("hasRole('ADMIN')")
     public void storeProject(@RequestBody Project proje){
         projServ.storeProject(proje);
     }
     // Update
     @PutMapping("/update/project")
+    @PreAuthorize("hasRole('ADMIN')")
     public Project updateProject(@RequestBody Project proje){
         projServ.storeProject(proje);
         return proje;
@@ -174,6 +105,7 @@ public class Controller {
     }
     // Delete
     @DeleteMapping("/delete/project/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public void deleteProject(@PathVariable Long id){
         projServ.deleteProject(id);
     }
@@ -189,11 +121,13 @@ public class Controller {
     }
     // Store
     @PostMapping("/store/study")
+    @PreAuthorize("hasRole('ADMIN')")
     public void storeStudy(@RequestBody Study stu){
         studServ.storeStudy(stu);
     }
     // Update
     @PutMapping("/update/study")
+    @PreAuthorize("hasRole('ADMIN')")
     public Study updateStudy(@RequestBody Study stu){
         studServ.storeStudy(stu);
         return stu;
@@ -206,6 +140,7 @@ public class Controller {
     }
     // Delete
     @DeleteMapping("/delete/study/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public void deleteStudy(@PathVariable Long id){
         studServ.deleteStudy(id);
     }
@@ -221,11 +156,13 @@ public class Controller {
     }
     // Store
     @PostMapping("/store/laboralexperience")
+    @PreAuthorize("hasRole('ADMIN')")
     public void storeLaboralExperience(@RequestBody LaboralExperience labex){
         labexpServ.storeLaboralExperience(labex);
     }
     // Update
     @PutMapping("/update/laboralexperience")
+    @PreAuthorize("hasRole('ADMIN')")
     public LaboralExperience updateLaboralExperience(@RequestBody LaboralExperience labex){
         labexpServ.storeLaboralExperience(labex);
         return labex;
@@ -238,6 +175,7 @@ public class Controller {
     }
     // Delete
     @DeleteMapping("/delete/laboralexperience/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public void deleteLaboralExperience(@PathVariable Long id){
         labexpServ.deleteLaboralExperience(id);
     }

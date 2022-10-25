@@ -54,7 +54,8 @@ public class DatabaseSeeder implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        /* //DESCOMENTAR SI SE QUIERE HACER UN SEED A LA DB
+        /*
+        //DESCOMENTAR SI SE QUIERE HACER UN SEED A LA DB
         // Creo un Rol
         Rol rolAdmin = new Rol(RolNombre.ROLE_ADMIN);
         rolService.save(rolAdmin);

@@ -59,9 +59,9 @@ public class MainSecurity extends WebSecurityConfigurerAdapter {
         http.cors().and().csrf().disable()
                 .authorizeRequests()
                 // .antMatchers("/auth/**").permitAll() //Dejaremos que solo un user logueado cree nuevos usuarios
-                .antMatchers("/auth/login/**").permitAll() //Permito que cualquiera se pueda loguear
-                .antMatchers("/time/**").permitAll()
-                .antMatchers("/index/**").permitAll() //Rutas index sin jwt
+                .antMatchers("/api/auth/login/**").permitAll() //Permito que cualquiera se pueda loguear
+                .antMatchers("/api/time/**").permitAll()
+                .antMatchers("/api/index/**").permitAll() //Rutas index sin jwt
                 .anyRequest().authenticated()
                 .and()
                 .exceptionHandling().authenticationEntryPoint(jwtEntryPoint)

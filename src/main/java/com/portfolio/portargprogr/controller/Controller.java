@@ -44,33 +44,33 @@ public class Controller {
 
 
     /* ********** Tecnology ********** */
-    @GetMapping("/index/tecnologies")
+    @GetMapping("/api/index/tecnologies")
     @ResponseBody
     public List<Tecnology> listTecnology(){
         return tecnServ.listTecnology();
     }
     // Store
     @PreAuthorize("hasRole('ADMIN')")
-    @PostMapping("/store/tecnology")
+    @PostMapping("/api/store/tecnology")
     public void storeTecnology(@RequestBody Tecnology tec){
         tecnServ.storeTecnology(tec);
     }
     // Update
     @PreAuthorize("hasRole('ADMIN')")
-    @PutMapping("/update/tecnology")
+    @PutMapping("/api/update/tecnology")
     public Tecnology updateTecnology(@RequestBody Tecnology tec){
         tecnServ.storeTecnology(tec);
         return tec;
     }
     // Find
-    @GetMapping("/find/tecnology/{id}")
+    @GetMapping("/api/find/tecnology/{id}")
     @ResponseBody
     public Tecnology findTecnology(@PathVariable Long id){
         return tecnServ.findTecnology(id);
     }
     // Delete
     @PreAuthorize("hasRole('ADMIN')")
-    @DeleteMapping("/delete/tecnology/{id}")
+    @DeleteMapping("/api/delete/tecnology/{id}")
     public void deleteTecnology(@PathVariable Long id){
         tecnServ.deleteTecnology(id);
     }
@@ -79,32 +79,32 @@ public class Controller {
 
 
     /* ********** Project ********** */
-    @GetMapping("/index/projects")
+    @GetMapping("/api/index/projects")
     @ResponseBody
     public List<Project> listProject(){
         return projServ.listProject();
     }
     // Store
-    @PostMapping("/store/project")
+    @PostMapping("/api/store/project")
     @PreAuthorize("hasRole('ADMIN')")
     public void storeProject(@RequestBody Project proje){
         projServ.storeProject(proje);
     }
     // Update
-    @PutMapping("/update/project")
+    @PutMapping("/api/update/project")
     @PreAuthorize("hasRole('ADMIN')")
     public Project updateProject(@RequestBody Project proje){
         projServ.storeProject(proje);
         return proje;
     }
     // Find
-    @GetMapping("/find/project/{id}")
+    @GetMapping("/api/find/project/{id}")
     @ResponseBody
     public Project findProject(@PathVariable Long id){
         return projServ.findProject(id);
     }
     // Delete
-    @DeleteMapping("/delete/project/{id}")
+    @DeleteMapping("/api/delete/project/{id}")
     @PreAuthorize("hasRole('ADMIN')")
     public void deleteProject(@PathVariable Long id){
         projServ.deleteProject(id);
@@ -114,32 +114,32 @@ public class Controller {
 
 
     /* ********** Study ********** */
-    @GetMapping("/index/studies")
+    @GetMapping("/api/index/studies")
     @ResponseBody
     public List<Study> listStudy(){
         return studServ.listStudy();
     }
     // Store
-    @PostMapping("/store/study")
+    @PostMapping("/api/store/study")
     @PreAuthorize("hasRole('ADMIN')")
     public void storeStudy(@RequestBody Study stu){
         studServ.storeStudy(stu);
     }
     // Update
-    @PutMapping("/update/study")
+    @PutMapping("/api/update/study")
     @PreAuthorize("hasRole('ADMIN')")
     public Study updateStudy(@RequestBody Study stu){
         studServ.storeStudy(stu);
         return stu;
     }
     // Find
-    @GetMapping("/find/study/{id}")
+    @GetMapping("/api/find/study/{id}")
     @ResponseBody
     public Study findStudy(@PathVariable Long id){
         return studServ.findStudy(id);
     }
     // Delete
-    @DeleteMapping("/delete/study/{id}")
+    @DeleteMapping("/api/delete/study/{id}")
     @PreAuthorize("hasRole('ADMIN')")
     public void deleteStudy(@PathVariable Long id){
         studServ.deleteStudy(id);
@@ -149,32 +149,32 @@ public class Controller {
 
 
     /* ********** LaboralExperience ********** */
-    @GetMapping("/index/laboralexperiences")
+    @GetMapping("/api/index/laboralexperiences")
     @ResponseBody
     public List<LaboralExperience> listLaboralExperience(){
         return labexpServ.listLaboralExperience();
     }
     // Store
-    @PostMapping("/store/laboralexperience")
+    @PostMapping("/api/store/laboralexperience")
     @PreAuthorize("hasRole('ADMIN')")
     public void storeLaboralExperience(@RequestBody LaboralExperience labex){
         labexpServ.storeLaboralExperience(labex);
     }
     // Update
-    @PutMapping("/update/laboralexperience")
+    @PutMapping("/api/update/laboralexperience")
     @PreAuthorize("hasRole('ADMIN')")
     public LaboralExperience updateLaboralExperience(@RequestBody LaboralExperience labex){
         labexpServ.storeLaboralExperience(labex);
         return labex;
     }
     // Find
-    @GetMapping("/find/laboralexperience/{id}")
+    @GetMapping("/api/find/laboralexperience/{id}")
     @ResponseBody
     public LaboralExperience findLaboralExperience(@PathVariable Long id){
         return labexpServ.findLaboralExperience(id);
     }
     // Delete
-    @DeleteMapping("/delete/laboralexperience/{id}")
+    @DeleteMapping("/api/delete/laboralexperience/{id}")
     @PreAuthorize("hasRole('ADMIN')")
     public void deleteLaboralExperience(@PathVariable Long id){
         labexpServ.deleteLaboralExperience(id);
@@ -182,7 +182,7 @@ public class Controller {
     /* ********** End LaboralExperience ********** */
 
    // Test api heroku
-   @GetMapping("/time")
+   @GetMapping("/api/time")
    @ResponseStatus(HttpStatus.OK)
    public String getCurrentTime() {
 

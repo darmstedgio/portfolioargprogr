@@ -2,6 +2,8 @@ package com.portfolio.portargprogr.controller;
 
 import java.time.Instant;
 
+import com.portfolio.portargprogr.model.*;
+import com.portfolio.portargprogr.service.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -16,14 +18,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.portfolio.portargprogr.model.Tecnology;
-import com.portfolio.portargprogr.model.Project;
-import com.portfolio.portargprogr.model.Study;
-import com.portfolio.portargprogr.model.LaboralExperience;
-import com.portfolio.portargprogr.service.ILaboralExperienceService;
-import com.portfolio.portargprogr.service.IProjectService;
-import com.portfolio.portargprogr.service.IStudyService;
-import com.portfolio.portargprogr.service.ITecnologyService;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.security.access.prepost.PreAuthorize;
 
@@ -41,6 +35,8 @@ public class Controller {
     private IStudyService studServ;
     @Autowired
     private ILaboralExperienceService labexpServ;
+    @Autowired
+    private IAboutMeService aboutmeServ;
 
 
     /* ********** Tecnology ********** */
@@ -180,6 +176,41 @@ public class Controller {
         labexpServ.deleteLaboralExperience(id);
     }
     /* ********** End LaboralExperience ********** */
+
+
+    /* ********** AboutMe ********** */
+    @GetMapping("/api/index/aboutme")
+    @ResponseBody
+    public List<AboutMe> listAboutMe(){
+        return aboutmeServ.listAboutMe();
+    }
+    // Store
+    @PostMapping("/api/store/aboutme")
+    @PreAuthorize("hasRole('ADMIN')")
+    public void storeAboutMe(@RequestBody AboutMe labex){
+        aboutmeServ.storeAboutMe(labex);
+    }
+    // Update
+    @PutMapping("/api/update/aboutme")
+    @PreAuthorize("hasRole('ADMIN')")
+    public AboutMe updateAboutMe(@RequestBody AboutMe labex){
+        aboutmeServ.storeAboutMe(labex);
+        return labex;
+    }
+    // Find
+    @GetMapping("/api/find/aboutme/{id}")
+    @ResponseBody
+    public AboutMe findAboutMe(@PathVariable Long id){
+        return aboutmeServ.findAboutMe(id);
+    }
+    // Delete
+    @DeleteMapping("/api/delete/aboutme/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
+    public void deleteAboutMe(@PathVariable Long id){
+        aboutmeServ.deleteAboutMe(id);
+    }
+    /* ********** End AboutMe ********** */
+
 
    // Test api heroku
    @GetMapping("/api/time")

@@ -26,7 +26,7 @@ public class LaboralExperience {
   private String start_activity;
   private String end_activity;
   private boolean keep_going;
-
+  private String icon_class = "text-bg-white fa-4x pl-3 fa-solid fa-briefcase";
   private String description;
   private String created_at;
   private String updated_at;

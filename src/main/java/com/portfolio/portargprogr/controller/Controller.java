@@ -179,7 +179,7 @@ public class Controller {
 
 
     /* ********** AboutMe ********** */
-    @GetMapping("/api/index/aboutme")
+    @GetMapping("/api/index/aboutmes")
     @ResponseBody
     public List<AboutMe> listAboutMe(){
         return aboutmeServ.listAboutMe();

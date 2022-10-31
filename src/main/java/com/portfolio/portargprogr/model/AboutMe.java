@@ -6,7 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.validation.constraints.Null;
+import javax.persistence.Table;
 
 @Getter
 @Setter
@@ -14,6 +14,7 @@ import javax.validation.constraints.Null;
 @NoArgsConstructor
 @ToString
 @Entity
+@Table(name="abouts")
 public class AboutMe {
   @Id
   @GeneratedValue(strategy=GenerationType.IDENTITY)

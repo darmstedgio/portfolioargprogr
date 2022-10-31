@@ -1,5 +1,6 @@
 package com.portfolio.portargprogr.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -29,6 +30,7 @@ public class LaboralExperience {
   private String end_activity;
   private boolean keep_going;
   private String icon_class = "text-bg-white fa-4x pl-3 fa-solid fa-briefcase";
+  @Column(columnDefinition = "TEXT")
   private String description;
   private String created_at;
   private String updated_at;

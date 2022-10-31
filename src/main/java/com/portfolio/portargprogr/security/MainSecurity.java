@@ -62,6 +62,7 @@ public class MainSecurity extends WebSecurityConfigurerAdapter {
                 .antMatchers("/api/auth/login/**").permitAll() //Permito que cualquiera se pueda loguear
                 .antMatchers("/api/time/**").permitAll()
                 .antMatchers("/api/index/**").permitAll() //Rutas index sin jwt
+                .antMatchers("/api/find/aboutme/1").permitAll() // Visualizar descripción
                 .anyRequest().authenticated()
                 .and()
                 .exceptionHandling().authenticationEntryPoint(jwtEntryPoint)

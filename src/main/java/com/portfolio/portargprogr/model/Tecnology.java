@@ -1,5 +1,6 @@
 package com.portfolio.portargprogr.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.GeneratedValue;
@@ -23,6 +24,7 @@ public class Tecnology {
   private String name;
   private int level;
   private String icon_class = "fa-solid fa-laptop-code text-bg-white fa-4x pl-3";
+  @Column(columnDefinition = "TEXT")
   private String description;
   private String created_at;
   private String updated_at;

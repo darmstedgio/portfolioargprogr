@@ -2,6 +2,7 @@ package com.portfolio.portargprogr.model;
 
 import lombok.*;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,6 +21,7 @@ public class AboutMe {
   @GeneratedValue(strategy=GenerationType.IDENTITY)
   private Long id;
   private String name;
+  @Column(columnDefinition = "TEXT")
   private String description;
   private String image_path;
   private String created_at;
